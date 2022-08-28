@@ -1,0 +1,39 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.backg {
+  background-color: black;
+  width: 100%;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 1px 1px 0;
+  margin-right: 1rem;
+  width: fit-content;
+}
+
+a:link {
+  color: rgb(227, 227, 234);
+}
+
+a:visited {
+  color: rgb(234, 227, 234);
+}
+
+a:focus,
+a:hover {
+  border-bottom: 2px solid;
+}
+
+a:active {
+  color: rgb(246, 237, 237);
+}
+
+a[href^="http"] {
+  background: wheat no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}

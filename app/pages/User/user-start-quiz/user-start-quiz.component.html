@@ -1,0 +1,43 @@
+<div class="card fadeInDown mt-4" style="background-color: rgb(234, 231, 231);">
+    <div class="card-header text-center">
+        <b>
+            <i>
+
+                <mat-card-title class="mt-4">{{quiz.title}}</mat-card-title>
+            </i>
+        </b>
+    </div>
+    <div class="card-body">
+        <mat-card-content class="text-center">
+
+
+            <h1 class="card-text">{{quiz.description}} </h1>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <b class="blockquote">Important Instructions</b>
+        <mat-divider></mat-divider>
+        <ul class="list-group list-group-flush gap-3 mt-4">
+            <li>The quizzes consists of <b>{{quiz.numberOfQuestions}}</b> questions carefully designed to help you
+                self-assess your comprehension of the
+                information presented on the <b> <i>{{quiz.title}}</i></b> topic covered in the module. No data will be
+                collected on the website
+                regarding your responses or how many times you take the quiz.</li>
+            <li>Each question in the quiz is of multiple-choice format. Read each question carefully,
+                and click on the button next to your response that is based on the information covered on the topic in
+                the <b>{{quiz.title}}</b>. Each correct or incorrect response will result in appropriate feedback
+                immediately
+                at the
+                bottom of the screen.</li>
+            <li>Each question consists of <b> {{quiz.maxMarks/quiz.numberOfQuestions}} </b> marks</li>
+            <li>The total score for the quiz is <b> {{quiz.maxMarks}} </b>. If you respond incorrectly to
+                a question or retake a question again and get the correct response, your quiz score will reflect it
+                appropriately. However, your quiz will not be graded, if you skip a question or exit before responding
+                to all the questions.</li>
+
+        </ul>
+        <mat-divider></mat-divider>
+        <div class="text-center">
+            <a (click)="startQuiz()" class="btn btn-primary mt-4 fadeIn third">Start Quiz</a>
+        </div>
+    </div>
+</div>

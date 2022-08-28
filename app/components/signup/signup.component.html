@@ -1,0 +1,49 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h1>SIGNUP</h1>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="submitForm()">
+
+      <!-- User name field -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn second">
+        <mat-label>User Name</mat-label>
+        <input [(ngModel)]="user.username" name="username" matInput placeholder="User name" required>
+      </mat-form-field>
+
+      <!--  User Email -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn second">
+        <mat-label>User Email</mat-label>
+        <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="User Email" required>
+      </mat-form-field>
+
+      <!--  first Name -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn third">
+        <mat-label>First Name</mat-label>
+        <input [(ngModel)]="user.firstname" name="firstname" matInput placeholder="First Name" required>
+      </mat-form-field>
+
+      <!--  Last Name -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn third">
+        <mat-label>Last Name</mat-label>
+        <input [(ngModel)]="user.lastname" name="lastname" matInput placeholder="Last Name" required>
+      </mat-form-field>
+
+      <!--  User Password -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn fourth ">
+        <mat-label> User Password</mat-label>
+        <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="User Password"
+          required>
+      </mat-form-field>
+
+      <!--  User Phone -->
+      <mat-form-field appearance="outline" class="w-75 fadeIn fourth">
+        <mat-label>User Phone</mat-label>
+        <input [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="User Phone" required>
+      </mat-form-field>
+
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+  </div>
+</div>

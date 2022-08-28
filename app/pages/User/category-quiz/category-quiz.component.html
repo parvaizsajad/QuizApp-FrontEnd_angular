@@ -1,0 +1,35 @@
+<div class="container-fluid fadeInDown mt-4">
+    <div class="row" *ngIf="catQuizes">
+        <div class="text-center">
+            <h1>Available Quizes</h1>
+            <h1 *ngIf="catQuizes.length==0" class="fadeIn third bg-red">No Quizes Available</h1>
+        </div>
+        <div class="col-md-4" *ngFor="let q of catQuizes">
+            <div *ngIf="q.active==true">
+                <mat-card class="mb-2">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{q.title}}</mat-card-title>
+                        <mat-card-subtitle>
+                            {{q.category.title}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="truncate"> {{q.description}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                        <button mat-raised-button color="warn"
+                            routerLink="/userDashboard/startQuiz/{{q.qId}}">start</button>
+                        <button mat-button>Qts {{q.numberOfQuestions}}</button>
+                        <button mat-button>Marks {{q.maxMarks}}</button>
+                    </mat-card-actions>
+
+                </mat-card>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

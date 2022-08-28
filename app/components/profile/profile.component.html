@@ -1,0 +1,41 @@
+<div class="card  fadeInDown text-center" style="margin-top:40px;">
+    <div class=" fadeIn second">
+        <h1> Profile</h1>
+    </div>
+    <div class="card-body fadeIn third">
+        <table class="table table-striped fadeIn fourth table table-primary">
+            <thead>
+                <tr class="table-secondary">
+
+                    <th scope="col">Name</th>
+                    <th scope="col">Value</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>User Name</td>
+                    <td>{{userService.getUsername()}}</td>
+
+                </tr>
+                <tr class="table-secondary">
+
+                    <td>Email</td>
+                    <td>{{userService.getUser().email}}</td>
+
+                </tr>
+                <tr class="">
+                    <td>Role</td>
+                    <td>{{userService.getRole()}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <button routerLink="/adminDashboard/profile" *ngIf="shown" type="button" class="btn btn-primary"
+            (click)="changeShow()">Show</button>
+        <button routerLink="/adminDashboard/edit" *ngIf="!shown" type="button" class="btn btn-secondary"
+            (click)="changeShow()">Edit</button>
+        <button type="button" class="btn btn-success">Share</button>
+    </div>
+</div>

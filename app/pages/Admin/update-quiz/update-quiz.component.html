@@ -1,0 +1,53 @@
+<div class=" fadeInDown mt-4 text-center">
+    <div>
+        <h1>Update {{SingleQuiz.title}}</h1>
+
+        <!-- Add Category -->
+        <form *ngIf="SingleQuiz" (ngSubmit)="updateForm()">
+
+            <input [(ngModel)]="SingleQuiz.title" name="title" type="text" placeholder="title">
+
+            <div class="form-floating m-3">
+
+                <textarea class="form-control" mat-input [(ngModel)]="SingleQuiz.description" name="description"
+                    placeholder="descriptions" id="floatingTextarea2"
+                    style="height: 100px;background-color: rgb(248, 244, 244);">
+                    </textarea>
+
+                <label style="color: grey;" for="floatingTextarea2">Click to add Description</label>
+
+                <div class="row">
+                    <div class="col-md-6 mt-3">
+                        <input [(ngModel)]="SingleQuiz.maxMarks" name="maxMarks" type="text" placeholder="Max Marks">
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <input [(ngModel)]="SingleQuiz.numberOfQuestions" name="numberOfQuestions" type="text"
+                            placeholder="Total Questions">
+                    </div>
+
+                    <section class="example-section mt-3 text-start">
+                        <mat-slide-toggle name="active" class="example-margin" [(ngModel)]="SingleQuiz.active">
+                            Active:
+                        </mat-slide-toggle>
+                    </section>
+
+                    <mat-form-field appearance="fill" class="mt-3">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="SingleQuiz.category.cid" name="cid">
+                            <mat-option>--</mat-option>
+                            <mat-option *ngFor="let i of category" [value]="i.cid">
+                                {{i.title}}
+                            </mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+
+
+                </div>
+
+            </div>
+            <input type="submit" class="fadeIn fourth" value="Update Quiz">
+        </form>
+
+    </div>
+</div>

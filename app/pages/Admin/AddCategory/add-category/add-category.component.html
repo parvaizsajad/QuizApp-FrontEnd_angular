@@ -1,0 +1,21 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h1>Add Category</h1>
+
+        <!-- Add Category -->
+        <form (ngSubmit)="addcategory()">
+            <input [(ngModel)]="data.title" name="title" type="text" placeholder="title">
+            <div class="form-floating m-4">
+                <textarea class="form-control" mat-input [(ngModel)]="data.description" name="description"
+                    placeholder="descriptions" id="floatingTextarea2"
+                    style="height: 100px;background-color: rgb(248, 244, 244);">
+                    </textarea>
+                <label style="color: grey;" for="floatingTextarea2">Click to add Description</label>
+
+
+            </div>
+            <input type="submit" class="fadeIn fourth" value="Add Category">
+        </form>
+
+    </div>
+</div>

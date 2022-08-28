@@ -1,0 +1,118 @@
+<div class="container-fluid  fadeInDown">
+  <div class="row">
+    <div class="col-md-2 mt-4">
+      <!-- instructions -->
+      <mat-card *ngIf="isSubmit">
+        <mat-card-header>
+          <mat-card-subtitle>Instructions:</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>Do not referesh.</li>
+            <li>If you referest the quiz Will load from start</li>
+            <li>You are not allowed to go back</li>
+            <li>Dont move to next tab</li>
+            <li>Click the Submit quiz button to submit the quiz</li>
+            <li>After the Time is over quiz will be submitted automatically</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-md-8 mt-4">
+      <div class="text-center">
+
+        <button *ngIf="question.length==0" mat-raised-button color="accent" routerLink="/userDashboard/allQuizes"> No
+          Questions in this quiz.Click to go home</button>
+      </div>
+      <section *ngIf="isSubmit">
+        <!-- questions -->
+
+        <main>
+          <i><b>
+              <mat-card-title> Questions of {{question[0].quiz.title}}</mat-card-title>
+
+            </b></i>
+          <mat-card *ngFor="let item of question, let i=index" class="mt-2"
+            style="border: 1px solid black;border-radius: 20px; ">
+            <b mr>{{i+1}}) <i class="mr"> {{item.content}} </i></b>
+            <mat-divider></mat-divider>
+            <div class="container">
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <input type="radio" class="btn-check" name="{{i}}" id="{{data.one}}{{i}}"
+                    [(ngModel)]="item.yourAnswer" [value]="item.option1">
+                  <label class="btn btn-outline-success" for="{{data.one}}{{i}}">{{item.option1}}</label>
+                </div>
+                <div class="col-md-6">
+                  <input type="radio" class="btn-check" name="{{i}}" id="{{data.two}}{{i}}"
+                    [(ngModel)]="item.yourAnswer" [value]="item.option2">
+                  <label class="btn btn-outline-success" for="{{data.two}}{{i}}">{{item.option2}}</label>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <input type="radio" class="btn-check" name="{{i}}" id="{{data.three}}{{i}}"
+                    [(ngModel)]="item.yourAnswer" [value]="item.option3">
+                  <label class="btn btn-outline-success" for="{{data.three}}{{i}}">{{item.option3}}</label>
+                </div>
+                <div class="col-md-6">
+                  <input type="radio" class="btn-check" name="{{i}}" id="{{data.four}}{{i}}"
+                    [(ngModel)]="item.yourAnswer" s [value]="item.option4">
+                  <label class="btn btn-outline-success" for="{{data.four}}{{i}}">{{item.option4}}</label>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </main>
+        <div class="text-center mt-4">
+          <button *ngIf="!noQuestHome" class="btn btn-primary mb-4" mat-raised-button color="primary"
+            (click)="submitQuiz()">Submit Quiz</button>
+
+        </div>
+      </section>
+
+
+
+
+      <mat-card *ngIf="!isSubmit" class=" fadeInDown">
+        <mat-card-header>
+          <mat-card-title>Quiz Submitted : {{question[0].quiz.title}}</mat-card-title>
+
+        </mat-card-header>
+        <mat-card-content>
+
+          <p> <b>Total Qustions: </b> {{this.question.length}}</p>
+          <p> <b>Qustions Attempted: </b> {{QuizResult.attempted}}</p>
+
+          <p> <b>Total Marks: </b> {{this.question[0].quiz.maxMarks}}</p>
+          <p><b> Marks Obtained: </b> {{QuizResult.obtainedMarks}}</p>
+
+          <p> <b> Correct Answers: </b> {{QuizResult.correctAnswers}} </p>
+        </mat-card-content>
+        <mat-card-actions class="text-center">
+          <button mat-raised-button color="primary" (click)="printresults()"> Print</button>
+          <button mat-raised-button color="accent" routerLink="/userDashboard/allQuizes">Home</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+
+
+    <div class="col-md-2 mt-4">
+      <!-- progress -->
+      <mat-card *ngIf="isSubmit">
+        <mat-card-content>
+          <h2 class="example-h2">Result</h2>
+
+          <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode"
+            [value]="(timer/(this.question.length*1*60))*100">
+
+          </mat-progress-spinner>
+          <h1>{{getFormattedTime()}}</h1>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
